@@ -60,19 +60,32 @@ $configData = Helper::applClasses();
       <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
         <h2 class="card-title fw-bold mb-1">Adventure starts here 🚀</h2>
         <p class="card-text mb-2">Make your app management easy and fun!</p>
-        <form class="auth-register-form mt-2" action="/" method="GET">
+        <form class="auth-register-form mt-2" action="{{ route('register') }}" method="POST">
+            @csrf
           <div class="mb-1">
             <label class="form-label" for="register-username">Username</label>
-            <input class="form-control" id="register-username" type="text" name="register-username" placeholder="johndoe" aria-describedby="register-username" autofocus="" tabindex="1" />
+            <input class="form-control" id="register-username" type="text" name="name" placeholder="johndoe" aria-describedby="register-username" autofocus="" tabindex="1" />
           </div>
           <div class="mb-1">
             <label class="form-label" for="register-email">Email</label>
-            <input class="form-control" id="register-email" type="text" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2" />
+            <input class="form-control" id="register-email" type="text" name="email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2" />
+            @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
           </div>
           <div class="mb-1">
             <label class="form-label" for="register-password">Password</label>
             <div class="input-group input-group-merge form-password-toggle">
-              <input class="form-control form-control-merge" id="register-password" type="password" name="register-password" placeholder="············" aria-describedby="register-password" tabindex="3" />
+              <input class="form-control form-control-merge" id="register-password" type="password" name="password" placeholder="············" aria-describedby="register-password" tabindex="3" />
+              <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+            </div>
+          </div>
+          <div class="mb-1">
+            <label class="form-label" for="register-confirm-password">Confirm Password</label>
+            <div class="input-group input-group-merge form-password-toggle">
+              <input class="form-control form-control-merge" id="register-password" type="password" name="password_confirmation" placeholder="············" aria-describedby="register-password" tabindex="3" />
               <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
             </div>
           </div>
@@ -82,7 +95,7 @@ $configData = Helper::applClasses();
               <label class="form-check-label" for="register-privacy-policy">I agree to<a href="#">&nbsp;privacy policy & terms</a></label>
             </div>
           </div>
-          <button class="btn btn-primary w-100" tabindex="5">Sign up</button>
+          <button class="btn btn-primary w-100" tabindex="5" >Sign up</button>
         </form>
         <p class="text-center mt-2">
           <span>Already have an account?</span>
