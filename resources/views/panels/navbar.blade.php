@@ -83,7 +83,7 @@
         </a>
       </div>
     </li>
-    <li class="nav-item dropdown dropdown-user">
+    {{-- <li class="nav-item dropdown dropdown-user">
       <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);"
         data-bs-toggle="dropdown" aria-haspopup="true">
         <div class="user-nav d-sm-flex d-none">
@@ -142,9 +142,7 @@
           <div class="dropdown-divider"></div>
           @if (Auth::user())
             @foreach (Auth::user()->allTeams() as $team)
-              {{-- Below commented code read by artisan command while installing jetstream. !! Do not remove if you want to use jetstream. --}}
 
-              {{-- <x-jet-switchable-team :team="$team" /> --}}
             @endforeach
           @endif
           <div class="dropdown-divider"></div>
@@ -163,7 +161,7 @@
           </a>
         @endif
       </div>
-    </li>
+    </li> --}}
   </ul>
 </div>
 </nav>
